@@ -1,12 +1,16 @@
 import streamlit as st
 import urllib.request
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 st.set_page_config(page_title="App Clima", page_icon="🌦️")
 st.title("App Clima")
 
 ciudad = st.text_input("Escribe el nombre de una ciudad:")
-api_key = "0fabd4bf8af750d1ffabedbaa084eac3"
+api_key = os.getenv("API_KEY")
 
 if st.button("Consultar"):
     if ciudad:
